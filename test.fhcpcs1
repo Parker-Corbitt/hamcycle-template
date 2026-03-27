@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# students must NOT change this file in any way!!!
+#PATH=/bin:/usr/bin
+TEST=$0
+
+# this is the command to test
+ARGS="-n 10 --oversubscribe ./hamcycle fhcpcs1.data"
+
+
+# this is the correct output
+# this is the output they should create
+cat > $TEST.correct << END
+0/10: 0 60 48 22 17 4 38 33 20 11 54 36 16 1 50 12 65 32 47 52 15 9 43 27 51 18 55 29 5 61 23 35 31 34 13 56 19 14 62 7 49 46 3 41 40 28 30 6 57 63 25 42 64 26 59 21 37 44 10 53 58 39 2 45 24 8 0
+1/10: Cycle does not exist
+2/10: Cycle does not exist
+3/10: Cycle does not exist
+4/10: Cycle does not exist
+5/10: 0 8 34 13 60 48 38 4 7 49 33 20 16 36 28 30 1 50 47 32 42 64 52 15 51 27 44 10 18 55 23 61 45 24 35 31 19 56 22 17 14 62 3 46 11 54 41 40 57 6 12 65 63 25 59 26 9 43 21 37 58 53 29 5 39 2 0
+6/10: 0 2 39 5 29 53 58 37 21 43 9 26 59 25 63 65 12 6 57 40 41 54 11 46 3 62 14 17 22 56 19 31 35 24 45 61 23 55 18 10 44 27 51 15 52 64 42 32 47 50 1 30 28 36 16 20 33 49 7 4 38 48 60 13 34 8 0
+7/10: 0 8 24 45 2 39 58 53 10 44 37 21 59 26 64 42 25 63 57 6 30 28 40 41 3 46 49 7 62 14 19 56 13 34 31 35 23 61 5 29 55 18 51 27 43 9 15 52 47 32 65 12 50 1 16 36 54 11 20 33 38 4 17 22 48 60 0
+8/10: 0 2 45 61 5 39 58 37 44 27 43 21 59 25 42 32 65 63 57 40 28 36 54 41 3 62 7 4 17 14 19 31 34 8 24 35 23 55 29 53 10 18 51 15 9 26 64 52 47 50 12 6 30 1 16 20 11 46 49 33 38 48 22 56 13 60 0
+9/10: 0 60 13 56 22 48 38 33 49 46 11 20 16 1 30 6 12 50 47 52 64 26 9 15 51 18 10 53 29 55 23 35 24 8 34 31 19 14 17 4 7 62 3 41 54 36 28 40 57 63 65 32 42 25 59 21 43 27 44 37 58 39 5 61 45 2 0
+END
+
+# don't change anything else
+echo "Running: mpiexec ${ARGS}"
+mpiexec ${ARGS} | sort > $TEST.myoutput
+
+if cmp -s $TEST.correct $TEST.myoutput; then
+    echo "PASSES"; exit 0
+else
+    echo "FAILS"; 
+    echo '==== output differences: < means the CORRECT output, > means YOUR output'
+    diff $TEST.correct $TEST.myoutput | cat -evt
+    exit 99
+fi

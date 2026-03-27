@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# students must NOT change this file in any way!!!
+#PATH=/bin:/usr/bin
+TEST=$0
+
+# this is the correct output
+# this is the output they should create
+cat > $TEST.correct << END
+0/4: Hamiltonian Cycle does not exist
+1/4: Hamiltonian Cycle does not exist
+2/4: Hamiltonian Cycle does not exist
+3/4: Hamiltonian Cycle does not exist
+END
+
+# don't change anything else
+for NP in 1 2 4; do
+    ARGS="-n ${NP} --oversubscribe ./hamcycle bigloner12.data"
+    echo "Running: mpiexec ${ARGS}"
+    time mpiexec ${ARGS} | sort > $TEST.myoutput
+done
+
+# test correctness of LAST run
+if cmp -s $TEST.correct $TEST.myoutput; then
+    echo "PASSES"; exit 0
+else
+    echo "FAILS"; 
+    echo '==== output differences: < means the CORRECT output, > means YOUR output'
+    diff $TEST.correct $TEST.myoutput | cat -evt
+    exit 99
+fi
