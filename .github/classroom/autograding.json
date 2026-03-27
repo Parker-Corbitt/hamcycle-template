@@ -1,0 +1,124 @@
+{
+  "tests": [
+    {
+      "name": "Install MPI and Compile",
+      "setup": "sudo apt-get install libopenmpi3 libopenmpi-dev; make clean",
+      "run": "make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 3,
+      "points": 1
+    },
+    {
+      "name": "test.star5",
+      "setup": "chmod a+rx test.*",
+      "run": "./test.star5",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "test.s6_1",
+      "setup": "",
+      "run": "./test.s6_1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "test.s6_2",
+      "setup": "",
+      "run": "./test.s6_2",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "test.s6_4",
+      "setup": "",
+      "run": "./test.s6_4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "test.s8_2",
+      "setup": "",
+      "run": "./test.s8_2",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 1
+    },
+    {
+      "name": "test.s8_3",
+      "setup": "",
+      "run": "./test.s8_3",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 1
+    },
+    {
+      "name": "test.s8_4",
+      "setup": "",
+      "run": "./test.s8_4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 1
+    },
+    {
+      "name": "test.s10_4",
+      "setup": "",
+      "run": "./test.s10_4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 1
+    },
+    {
+      "name": "test.s12_4",
+      "setup": "",
+      "run": "./test.s12_4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 3,
+      "points": 3
+    },
+    {
+      "name": "test.bl10",
+      "setup": "",
+      "run": "./test.bl10",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 3,
+      "points": 3
+    },
+    {
+      "name": "test.bl12",
+      "setup": "",
+      "run": "./test.bl12",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 3,
+      "points": 3
+    }
+  ]
+}
